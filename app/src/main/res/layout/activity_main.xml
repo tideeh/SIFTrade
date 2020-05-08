@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/text_footer"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bem vindo ao"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" SIF TRADE"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Aqui você encontra as\ninformações mais\nrecentes sobre o mercado\nflorestal."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="1dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Tabelas SIF"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="10dp"
+                    android:textSize="22sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="1dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Encontre um fornecedor" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="1dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Área dos associados" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="1dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Notícias" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="1dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Eventos" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="1dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Fale Conosco" />
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/text_footer"
+            layout="@layout/footer"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
