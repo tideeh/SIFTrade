@@ -62,80 +62,33 @@
                     android:textSize="18sp" />
 
                 <com.google.android.material.button.MaterialButton
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="1dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    style="@style/botao_confirmar"
                     android:text="Tabelas SIF"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
                     android:layout_marginTop="10dp"
-                    android:textSize="22sp" />
+                    android:onClick="btnTabelasSIF"/>
 
                 <com.google.android.material.button.MaterialButton
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="1dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp"
+                    style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
                     android:text="Encontre um fornecedor" />
 
                 <com.google.android.material.button.MaterialButton
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="1dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp"
+                    style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
                     android:text="Área dos associados" />
 
                 <com.google.android.material.button.MaterialButton
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="1dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp"
+                    style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
                     android:text="Notícias" />
 
                 <com.google.android.material.button.MaterialButton
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="1dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp"
+                    style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
                     android:text="Eventos" />
 
                 <com.google.android.material.button.MaterialButton
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="1dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp"
+                    style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
                     android:text="Fale Conosco" />
             </LinearLayout>

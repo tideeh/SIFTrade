@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "974391386516",
+    "firebase_url": "https://polen-sif-trade.firebaseio.com",
+    "project_id": "polen-sif-trade",
+    "storage_bucket": "polen-sif-trade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974391386516:android:e019b40b1f9715fb0bef81",
+        "android_client_info": {
+          "package_name": "br.com.polenflorestal.siftrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974391386516-jqlqn1rnagb2d3g68ghjfkne4p7rrqi0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.polenflorestal.siftrade",
+            "certificate_hash": "e3aaec973184a9ba7fd531f1d65392b75a989e0e"
+          }
+        },
+        {
+          "client_id": "974391386516-f0tpeppv33q9ap2n2gkeusk6i4n3lhvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_F-Lu0B_HdI2Z7AK7pAlbmcmjzaTtw7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974391386516-f0tpeppv33q9ap2n2gkeusk6i4n3lhvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

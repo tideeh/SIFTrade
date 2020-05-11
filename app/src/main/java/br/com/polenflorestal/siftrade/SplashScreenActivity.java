@@ -1,15 +1,17 @@
 package br.com.polenflorestal.siftrade;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.TextView;
-import static br.com.polenflorestal.siftrade.Constants.*;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import static br.com.polenflorestal.siftrade.Constants.DEFAULT_INT_VALUE;
+import static br.com.polenflorestal.siftrade.Constants.SP_KEY_VERSION_CODE;
+import static br.com.polenflorestal.siftrade.Constants.SP_NOME;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
