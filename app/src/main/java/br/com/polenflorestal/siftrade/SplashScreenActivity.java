@@ -40,7 +40,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 fechaSplash();
             }
-        }, 1000 );
+        }, 500 );
     }
 
     private void fechaSplash(){

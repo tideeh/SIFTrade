@@ -125,7 +125,8 @@
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
                     android:layout_marginTop="20dp"
-                    android:text="@string/Consultar" />
+                    android:text="@string/Consultar"
+                    android:onClick="consultarPreco"/>
 
                 <TextView
                     android:layout_width="wrap_content"

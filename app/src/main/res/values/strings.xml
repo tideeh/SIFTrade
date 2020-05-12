@@ -44,6 +44,17 @@
     </string-array>
 
     <string name="produto_prompt">Selecione um Produto</string>
+    <string-array name="produto_list">
+        <item>Selecione um Produto</item>
+        <item>Carvão</item>
+        <item>Lenha</item>
+        <item>Madeira em pé</item>
+        <item>Madeira no pátio</item>
+        <item>Celulose</item>
+        <item>Terras</item>
+        <item>Mudas</item>
+    </string-array>
+
     <string name="Floresta_4_0">Floresta 4.0</string>
     <string name="Polen_Startup_Florestal">Pólen Startup Florestal</string>
     <string name="Bem_vindo_ao">Bem vindo ao</string>
@@ -75,15 +86,6 @@
     <string name="empresas_logos">empresas logos</string>
     <string name="Parceria_Universidade_Empresa_">Parceria Universidade - Empresa\nDesde 1974</string>
     <string name="sif_c_2020">SIF © 2020</string>
-    <string-array name="produto_list">
-        <item>Selecione um Produto</item>
-        <item>Carvão</item>
-        <item>Lenha</item>
-        <item>Madeira em pé</item>
-        <item>Madeira no pátio</item>
-        <item>Celulose</item>
-        <item>Terras</item>
-        <item>Mudas</item>
-    </string-array>
+    <string name="Unidade_dois_pontos">"Unidade: "</string>
 
 </resources>

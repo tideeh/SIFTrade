@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -18,14 +19,17 @@ import java.util.Map;
 import java.util.Random;
 
 import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresas_logos;
+import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
 
 public class TabelasSIFActivity extends AppCompatActivity {
     private static final int RC_FAZER_LOGIN = 9003;
     Map<String, String[]> uf_regions;
-    private int empresa_index;
+    private int empresaIndex;
     private boolean activeLogos;
+
+    private Spinner spinnerUF;
     private Spinner spinnerRegiao;
+    private Spinner spinnerProduto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,13 @@ public class TabelasSIFActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tabelas_s_i_f);
 
         uf_regions = new HashMap<>();
-        uf_regions.put("MG", new String[] {"Belo Horizonte", "Divinópolis", "Norte de Minas", "Sete Lagoas", "Vale do Aço", "Vale do Jequitinhonha e Mucuri", "Zona da Mata Mineira"});
-        uf_regions.put("BA", new String[] {"Estado da Bahia"});
-        uf_regions.put("ES", new String[] {"Estado do Espírito Santo"});
+        uf_regions.put("MG", new String[] {getString(R.string.regiao_prompt), "Belo Horizonte", "Divinópolis", "Norte de Minas", "Sete Lagoas", "Vale do Aço", "Vale do Jequitinhonha e Mucuri", "Zona da Mata Mineira"});
+        uf_regions.put("BA", new String[] {getString(R.string.regiao_prompt), "Estado da Bahia"});
+        uf_regions.put("ES", new String[] {getString(R.string.regiao_prompt), "Estado do Espírito Santo"});
 
-        Spinner spinnerUF = findViewById(R.id.spnUF);
+        spinnerUF = findViewById(R.id.spnUF);
         spinnerRegiao = findViewById(R.id.spnRegiao);
-        //Spinner spinnerProduto = findViewById(R.id.spnProduto);
+        spinnerProduto = findViewById(R.id.spnProduto);
 
         spinnerUF.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -67,12 +71,12 @@ public class TabelasSIFActivity extends AppCompatActivity {
         });
 
         // primeira logo
-        empresa_index = new Random().nextInt(empresas_logos.length);
-        if (empresa_index >= empresas_logos.length)
-            empresa_index = 0;
-        if( empresas_logos.length > 0 )
-            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
-        empresa_index += 1;
+        empresaIndex = new Random().nextInt(empresasLogos.length);
+        if (empresaIndex >= empresasLogos.length)
+            empresaIndex = 0;
+        if( empresasLogos.length > 0 )
+            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresasLogos[empresaIndex]);
+        empresaIndex += 1;
     }
 
     @Override
@@ -115,13 +119,13 @@ public class TabelasSIFActivity extends AppCompatActivity {
                 @Override
                 public void run() {
 
-                    if (empresa_index >= empresas_logos.length)
-                        empresa_index = 0;
+                    if (empresaIndex >= empresasLogos.length)
+                        empresaIndex = 0;
 
-                    if (empresas_logos.length > 0)
-                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
+                    if (empresasLogos.length > 0)
+                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresasLogos[empresaIndex]);
 
-                    empresa_index += 1;
+                    empresaIndex += 1;
 
                     logosRotativas();
                 }
@@ -129,4 +133,46 @@ public class TabelasSIFActivity extends AppCompatActivity {
         }
     }
 
+    public void consultarPreco(View view) {
+        if (!validaDados()) {
+            return;
+        }
+
+        Intent intent = new Intent(this, ExibeTabelaSIF.class);
+        intent.putExtra("UF", spinnerUF.getSelectedItem().toString());
+        intent.putExtra("Região", spinnerRegiao.getSelectedItem().toString());
+        intent.putExtra("Produto", spinnerProduto.getSelectedItem().toString());
+
+        startActivity(intent);
+    }
+
+    private boolean validaDados() {
+        boolean valido = true;
+
+        if ( spinnerUF.getSelectedItemPosition() == 0 ) {
+            ((TextView)spinnerUF.getSelectedView()).setError("Selecione um Estado");
+            valido = false;
+        }
+        else {
+            ((TextView)spinnerUF.getSelectedView()).setError(null);
+        }
+
+        if ( spinnerRegiao.getSelectedItemPosition() == 0 ) {
+            ((TextView)spinnerRegiao.getSelectedView()).setError("Selecione uma Região");
+            valido = false;
+        }
+        else {
+            ((TextView)spinnerRegiao.getSelectedView()).setError(null);
+        }
+
+        if ( spinnerProduto.getSelectedItemPosition() == 0 ) {
+            ((TextView)spinnerProduto.getSelectedView()).setError("Selecione um Produto");
+            valido = false;
+        }
+        else {
+            ((TextView)spinnerProduto.getSelectedView()).setError(null);
+        }
+
+        return valido;
+    }
 }

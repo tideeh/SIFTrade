@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
 import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresas_logos;
+import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
 
 public class MainActivity extends AppCompatActivity {
     private int empresaIndex;
@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.btn_user_logout)).setText(Html.fromHtml("<u>Sair</u>"));
 
         // exibe o Primeiro logo
-        empresaIndex = new Random().nextInt(empresas_logos.length);
-        if (empresaIndex >= empresas_logos.length)
+        empresaIndex = new Random().nextInt(empresasLogos.length);
+        if (empresaIndex >= empresasLogos.length)
             empresaIndex = 0;
-        if( empresas_logos.length > 0 )
-            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresaIndex]);
+        if( empresasLogos.length > 0 )
+            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresasLogos[empresaIndex]);
         empresaIndex += 1;
     }
 
@@ -66,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
 
-                    if (empresaIndex >= empresas_logos.length)
+                    if (empresaIndex >= empresasLogos.length)
                         empresaIndex = 0;
 
-                    if (empresas_logos.length > 0)
-                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresaIndex]);
+                    if (empresasLogos.length > 0)
+                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresasLogos[empresaIndex]);
 
                     empresaIndex += 1;
 

@@ -30,7 +30,7 @@ import com.google.android.gms.tasks.Task;
 import java.util.Random;
 
 import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresas_logos;
+import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private int empresa_index;
@@ -102,11 +102,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegister.setOnClickListener(this);
 
         // primeiro logo
-        empresa_index = new Random().nextInt(empresas_logos.length);
-        if (empresa_index >= empresas_logos.length)
+        empresa_index = new Random().nextInt(empresasLogos.length);
+        if (empresa_index >= empresasLogos.length)
             empresa_index = 0;
-        if( empresas_logos.length > 0 )
-            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
+        if( empresasLogos.length > 0 )
+            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresasLogos[empresa_index]);
         empresa_index += 1;
     }
 
@@ -210,11 +210,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void run() {
 
-                    if (empresa_index >= empresas_logos.length)
+                    if (empresa_index >= empresasLogos.length)
                         empresa_index = 0;
 
-                    if (empresas_logos.length > 0)
-                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
+                    if (empresasLogos.length > 0)
+                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresasLogos[empresa_index]);
 
                     empresa_index += 1;
 

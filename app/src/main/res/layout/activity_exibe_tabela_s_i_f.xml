@@ -57,6 +57,7 @@
 
 
                 <TextView
+                    android:id="@+id/exibe_tabela_uf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -64,9 +65,10 @@
                     android:text="@string/UF_dois_pontos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/exibe_tabela_regiao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -74,41 +76,25 @@
                     android:text="@string/Regiao_dois_pontos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/exibe_tabela_unidade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:gravity="center_horizontal"
-                    android:text="Unidade: "
+                    android:text="@string/Unidade_dois_pontos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
-
-                    <TableRow
-                        android:background="#0079D6"
-                        android:padding="5dp">
-                        <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="01/2015" />
-
-                        <TextView
-                            android:gravity="center_horizontal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="112" />
-                    </TableRow>
+                    android:id="@+id/exibe_tabela_tableLayout"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
 
                 </TableLayout>
 
