@@ -21,6 +21,7 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class UserUtil {
     private static FirebaseAuth mAuth;
@@ -120,7 +121,7 @@ public class UserUtil {
         });
     }
 
-    public static void createUserWithEmailAndPassword(final AppCompatActivity ctx, String email, String senha, final ProgressBar progressBar) {
+    public static void createUserWithEmailAndPassword(final AppCompatActivity ctx, String email, String senha, final ProgressBar progressBar, final String nome) {
 
         if (mAuth == null) {
             mAuth = FirebaseAuth.getInstance();
@@ -135,6 +136,13 @@ public class UserUtil {
                         if (task.isSuccessful()) {
                             // registrado com sucesso, vai para a tela selecionar fazenda
                             //ctx.startActivity(new Intent(ctx, SelecionarFazenda.class));
+
+                            // adiciona o nome
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(nome)
+                                    .build();
+                            getCurrentUser().updateProfile(profileUpdates);
+
                             ctx.setResult(Activity.RESULT_OK);
                             ctx.finish();
                         } else {

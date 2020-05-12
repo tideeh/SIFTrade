@@ -16,6 +16,7 @@ import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
 import static br.com.polenflorestal.siftrade.Constants.empresas_logos;
 
 public class RegisterActivity extends AppCompatActivity {
+    private EditText input_nome;
     private EditText input_email;
     private EditText input_senha;
     private EditText input_senha_repetir;
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         input_email = findViewById(R.id.register_input_email);
+        input_nome = findViewById(R.id.register_input_nome);
         input_senha = findViewById(R.id.register_input_senha);
         input_senha_repetir = findViewById(R.id.register_input_senha_repetir);
 
@@ -50,12 +52,21 @@ public class RegisterActivity extends AppCompatActivity {
 
         String email = input_email.getText().toString();
         String senha = input_senha.getText().toString();
+        String nome = input_nome.getText().toString();
 
-        UserUtil.createUserWithEmailAndPassword(this, email, senha, progressBar);
+        UserUtil.createUserWithEmailAndPassword(this, email, senha, progressBar, nome);
     }
 
     private boolean validaDados() {
         boolean valido = true;
+
+        String nome = input_nome.getText().toString();
+        if (TextUtils.isEmpty(nome)) {
+            input_nome.setError("Campo necessário.");
+            valido = false;
+        } else {
+            input_nome.setError(null);
+        }
 
         String email = input_email.getText().toString();
         if (TextUtils.isEmpty(email)) {

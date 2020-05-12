@@ -71,7 +71,10 @@
 
                     <Spinner
                         android:id="@+id/spnUF"
-                        style="@style/spinner_tabelasSIF" />
+                        style="@style/spinner_tabelasSIF"
+                        android:entries="@array/uf_list"
+                        android:prompt="@string/uf_prompt"/>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -93,7 +96,9 @@
 
                     <Spinner
                         android:id="@+id/spnRegiao"
-                        style="@style/spinner_tabelasSIF" />
+                        style="@style/spinner_tabelasSIF"
+                        android:entries="@array/regiao_list"
+                        android:prompt="@string/regiao_prompt"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -115,8 +120,11 @@
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:id="@+id/spnProduto"
                         android:layout_weight="8"
-                        style="@style/spinner_tabelasSIF" />
+                        style="@style/spinner_tabelasSIF"
+                        android:entries="@array/produto_list"
+                        android:prompt="@string/produto_prompt"/>
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton

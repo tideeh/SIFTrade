@@ -6,4 +6,53 @@
     <string name="fb_login_protocol_scheme">fb171454440860215</string>
     <string name="fazer_login_com_google">Fazer login com Google</string>
 
+    <string name="uf_prompt">Selecione um Estado</string>
+    <string-array name="uf_list">
+        <item>Selecione um Estado</item>
+        <item>AC</item>
+        <item>AL</item>
+        <item>AM</item>
+        <item>AP</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MG</item>
+        <item>MS</item>
+        <item>MT</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>PR</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>RS</item>
+        <item>SC</item>
+        <item>SE</item>
+        <item>SP</item>
+        <item>TO</item>
+    </string-array>
+
+    <string name="regiao_prompt">Selecione uma Região</string>
+    <string-array name="regiao_list">
+        <item>Selecione uma Região</item>
+    </string-array>
+
+    <string name="produto_prompt">Selecione um Produto</string>
+    <string-array name="produto_list">
+        <item>Selecione um Produto</item>
+        <item>Carvão</item>
+        <item>Lenha</item>
+        <item>Madeira em pé</item>
+        <item>Madeira no pátio</item>
+        <item>Celulose</item>
+        <item>Terras</item>
+        <item>Mudas</item>
+    </string-array>
+
 </resources>
