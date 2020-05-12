@@ -23,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private int empresa_index;
+    private boolean activeLogos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +37,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progress_bar);
 
+        // primeiro logo
         empresa_index = new Random().nextInt(empresas_logos.length);
         if (empresa_index >= empresas_logos.length)
             empresa_index = 0;
         if( empresas_logos.length > 0 )
             ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
         empresa_index += 1;
-        logosRotativas();
     }
 
     public void btnRegister(View view){
@@ -98,21 +99,41 @@ public class RegisterActivity extends AppCompatActivity {
         return valido;
     }
 
-    private void logosRotativas() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-                if (empresa_index >= empresas_logos.length)
-                    empresa_index = 0;
-
-                if( empresas_logos.length > 0 )
-                    ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
-
-                empresa_index += 1;
-
-                logosRotativas();
-            }
-        }, LOGOS_ROTATE_TIME);
+        // ativa rotacao dos logos
+        activeLogos = true;
+        logosRotativas();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // desativa rotacao dos logos
+        activeLogos = false;
+    }
+
+    private void logosRotativas() {
+        if( activeLogos ) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (empresa_index >= empresas_logos.length)
+                        empresa_index = 0;
+
+                    if (empresas_logos.length > 0)
+                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
+
+                    empresa_index += 1;
+
+                    logosRotativas();
+                }
+            }, LOGOS_ROTATE_TIME);
+        }
+    }
+
 }

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -18,8 +17,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_above="@id/text_footer"
+            android:layout_alignParentTop="true"
             android:background="@color/colorPrimary">
 
             <LinearLayout
@@ -31,8 +30,8 @@
                     android:id="@+id/view_user_logado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
                     android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
                     android:orientation="horizontal"
                     android:visibility="gone">
 
@@ -49,7 +48,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:onClick="userLogout"
-                        android:text="Sair" />
+                        android:text="@string/Sair" />
 
                 </LinearLayout>
 
@@ -62,7 +61,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bem vindo ao"
+                        android:text="@string/Bem_vindo_ao"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
@@ -70,7 +69,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" SIF TRADE"
+                        android:text="@string/SIF_TRADE"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp"
@@ -80,43 +79,43 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:gravity="center_horizontal"
-                    android:text="Aqui você encontra as\ninformações mais\nrecentes sobre o mercado\nflorestal."
+                    android:text="@string/Aqui_voce_encontra_"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#FFFFFF"
-                    android:layout_marginTop="5dp"
                     android:textSize="18sp" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
-                    android:text="Tabelas SIF"
                     android:layout_marginTop="10dp"
-                    android:onClick="btnTabelasSIF"/>
+                    android:onClick="btnTabelasSIF"
+                    android:text="@string/Tabelas_SIF" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
-                    android:text="Encontre um fornecedor" />
+                    android:text="@string/Encontre_um_fornecedor" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
-                    android:text="Área dos associados" />
+                    android:text="@string/Area_dos_associados" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
-                    android:text="Notícias" />
+                    android:text="@string/Noticias" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
-                    android:text="Eventos" />
+                    android:text="@string/Eventos" />
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/botao_confirmar"
                     android:layout_marginTop="10dp"
-                    android:text="Fale Conosco" />
+                    android:text="@string/Fale_Conosco" />
             </LinearLayout>
         </ScrollView>
 

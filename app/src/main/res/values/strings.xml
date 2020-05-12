@@ -44,6 +44,37 @@
     </string-array>
 
     <string name="produto_prompt">Selecione um Produto</string>
+    <string name="Floresta_4_0">Floresta 4.0</string>
+    <string name="Polen_Startup_Florestal">Pólen Startup Florestal</string>
+    <string name="Bem_vindo_ao">Bem vindo ao</string>
+    <string name="SIF_TRADE">" SIF TRADE"</string>
+    <string name="Aqui_voce_encontra_">Aqui você encontra as\ninformações mais\nrecentes sobre o mercado\nflorestal.</string>
+    <string name="Encontre_um_fornecedor">Encontre um fornecedor</string>
+    <string name="Area_dos_associados">Área dos associados</string>
+    <string name="Noticias">Notícias</string>
+    <string name="Eventos">Eventos</string>
+    <string name="Fale_Conosco">Fale Conosco</string>
+    <string name="Sair">Sair</string>
+    <string name="ou">ou</string>
+    <string name="email">email</string>
+    <string name="senha">senha</string>
+    <string name="Login">Login</string>
+    <string name="Recuperar_Senha">Recuperar Senha</string>
+    <string name="nome">nome</string>
+    <string name="repita_a_senha">repita a senha</string>
+    <string name="Registrar">Registrar</string>
+    <string name="Tabelas_SIF">Tabelas SIF</string>
+    <string name="Consulte_os_valores_">Consulte os valores praticados no mercado florestal de MG.</string>
+    <string name="UF_dois_pontos">"UF: "</string>
+    <string name="Regiao_dois_pontos">"Região: "</string>
+    <string name="Produto_dois_pontos">"Produto: "</string>
+    <string name="Consultar">Consultar</string>
+    <string name="Ultima_atualizacao_dois_pontos">Última atualização:</string>
+    <string name="logo_header">logo header</string>
+    <string name="Sociedade_de_Invest_">Sociedade de\nInvestigações\nFlorestais</string>
+    <string name="empresas_logos">empresas logos</string>
+    <string name="Parceria_Universidade_Empresa_">Parceria Universidade - Empresa\nDesde 1974</string>
+    <string name="sif_c_2020">SIF © 2020</string>
     <string-array name="produto_list">
         <item>Selecione um Produto</item>
         <item>Carvão</item>

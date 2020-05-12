@@ -34,15 +34,11 @@ import static br.com.polenflorestal.siftrade.Constants.empresas_logos;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private int empresa_index;
+    private boolean activeLogos;
     private static final int RC_SIGN_IN_GOOGLE = 9001;
     private static final int RC_REGISTER_ACCOUNT = 9002;
 
     private ProgressBar progressBar;
-
-    private SignInButton btnLoginWithGoogle;
-    private Button btnLoginWithPassword;
-    private LoginButton btnLoginWithFacebook;
-    private TextView btnRegister;
 
     private EditText inputEmail;
     private EditText inputPassword;
@@ -65,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Configura Facebook Login
         mCallbackManager = CallbackManager.Factory.create();
-        btnLoginWithFacebook = findViewById(R.id.btn_login_com_facebook);
+        LoginButton btnLoginWithFacebook = findViewById(R.id.btn_login_com_facebook);
         btnLoginWithFacebook.setPermissions("email", "public_profile");
         btnLoginWithFacebook.setOnClickListener(this);
         btnLoginWithFacebook.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
@@ -95,23 +91,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         inputEmail = findViewById(R.id.login_input_email);
         inputPassword = findViewById(R.id.login_input_senha);
 
-        btnLoginWithGoogle = findViewById(R.id.btn_login_com_google);
+        SignInButton btnLoginWithGoogle = findViewById(R.id.btn_login_com_google);
         setGooglePlusButtonText(btnLoginWithGoogle, getString(R.string.fazer_login_com_google));
         btnLoginWithGoogle.setOnClickListener(this);
 
-        btnLoginWithPassword = findViewById(R.id.btn_login_com_senha);
+        Button btnLoginWithPassword = findViewById(R.id.btn_login_com_senha);
         btnLoginWithPassword.setOnClickListener(this);
 
-        btnRegister = findViewById(R.id.btn_registrar);
+        TextView btnRegister = findViewById(R.id.btn_registrar);
         btnRegister.setOnClickListener(this);
 
+        // primeiro logo
         empresa_index = new Random().nextInt(empresas_logos.length);
         if (empresa_index >= empresas_logos.length)
             empresa_index = 0;
         if( empresas_logos.length > 0 )
             ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
         empresa_index += 1;
-        logosRotativas();
     }
 
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
@@ -191,21 +187,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void logosRotativas() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-                if (empresa_index >= empresas_logos.length)
-                    empresa_index = 0;
-
-                if( empresas_logos.length > 0 )
-                    ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
-
-                empresa_index += 1;
-
-                logosRotativas();
-            }
-        }, LOGOS_ROTATE_TIME);
+        // ativa a rotacao dos logos
+        activeLogos = true;
+        logosRotativas();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // desativa a rotacao dos logos
+        activeLogos = false;
+    }
+
+    private void logosRotativas() {
+        if( activeLogos ) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (empresa_index >= empresas_logos.length)
+                        empresa_index = 0;
+
+                    if (empresas_logos.length > 0)
+                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
+
+                    empresa_index += 1;
+
+                    logosRotativas();
+                }
+            }, LOGOS_ROTATE_TIME);
+        }
+    }
+
 }

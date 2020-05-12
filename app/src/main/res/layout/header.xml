@@ -15,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:contentDescription="logo header"
+        android:contentDescription="@string/logo_header"
         android:maxWidth="250dp"
         android:maxHeight="100dp"
         android:src="@drawable/logo1" />
@@ -29,7 +29,7 @@
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/logo_header"
         android:gravity="center_vertical"
-        android:text="Sociedade de\nInvestigações\nFlorestais"
+        android:text="@string/Sociedade_de_Invest_"
         android:textColor="@color/colorSecondary"
         android:textStyle="bold|italic" />
 
@@ -55,7 +55,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/separador_vertical_header"
             android:adjustViewBounds="true"
-            android:contentDescription="empresas logos"
+            android:contentDescription="@string/empresas_logos"
             android:maxHeight="130dp" />
 
     <TextView
@@ -67,7 +67,7 @@
         android:layout_alignEnd="@id/text_sif"
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
-        android:text="Parceria Universidade - Empresa\nDesde 1974"
+        android:text="@string/Parceria_Universidade_Empresa_"
         android:textColor="#000000"
         android:textSize="12sp" />
 

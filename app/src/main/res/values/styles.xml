@@ -13,7 +13,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:indeterminate">true</item>
-        <item name="android:indeterminateTint">@color/colorPrimaryLight</item>
+        <item name="android:indeterminateTint">@color/colorPrimary</item>
     </style>
 
     <style name="MyFullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -32,6 +32,12 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="input_texts">
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
     <style name="spinner_tabelasSIF">

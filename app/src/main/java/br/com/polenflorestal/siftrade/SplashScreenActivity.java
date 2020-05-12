@@ -16,7 +16,6 @@ import static br.com.polenflorestal.siftrade.Constants.SP_NOME;
 public class SplashScreenActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
-    private String versionName;
     private int versionCode;
 
     @Override
@@ -26,10 +25,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(SP_NOME, Context.MODE_PRIVATE);
 
-        versionName = BuildConfig.VERSION_NAME;
+        String versionName = BuildConfig.VERSION_NAME;
         versionCode = BuildConfig.VERSION_CODE;
 
-        Log.i("SPLASH_SCREEN", "CurrentVersionName: "+versionName);
+        Log.i("SPLASH_SCREEN", "CurrentVersionName: "+ versionName);
         Log.i("SPLASH_SCREEN", "CurrentVersionCode: "+versionCode);
 
         //((TextView) findViewById(R.id.splash_version_name)).setText(versionName);

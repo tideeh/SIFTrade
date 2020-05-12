@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,10 +9,10 @@
     tools:context=".SplashScreenActivity">
 
     <ImageView
-        android:layout_marginTop="50dp"
         android:id="@+id/splash_logo"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
+        android:layout_marginTop="50dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/imagem_logo"
         android:src="@drawable/logo1" />
@@ -23,7 +22,7 @@
         style="@style/my_progress_bar"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/splash_texto2"
@@ -31,7 +30,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/arbutus_slab"
         android:gravity="center"
-        android:text="Floresta 4.0"
+        android:text="@string/Floresta_4_0"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#272323"
@@ -56,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/exo_2"
-        android:text="Pólen Startup Florestal"
+        android:text="@string/Polen_Startup_Florestal"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="12sp" />
 

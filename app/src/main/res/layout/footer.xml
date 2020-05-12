@@ -5,6 +5,5 @@
     android:layout_height="30dp"
     android:gravity="center"
     android:layout_alignParentBottom="true"
-    android:text="SIF © 2020">
-
+    android:text="@string/sif_c_2020">
 </TextView>

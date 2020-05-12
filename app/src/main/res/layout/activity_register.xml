@@ -28,12 +28,9 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    style="@style/input_texts"
                     android:layout_marginTop="40dp"
-                    android:layout_marginEnd="30dp"
-                    android:hint="nome">
+                    android:hint="@string/nome">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_input_nome"
@@ -45,12 +42,9 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    style="@style/input_texts"
                     android:layout_marginTop="15dp"
-                    android:layout_marginEnd="30dp"
-                    android:hint="email">
+                    android:hint="@string/email">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_input_email"
@@ -62,12 +56,9 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    style="@style/input_texts"
                     android:layout_marginTop="15dp"
-                    android:layout_marginEnd="30dp"
-                    android:hint="senha">
+                    android:hint="@string/senha">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_input_senha"
@@ -79,12 +70,9 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    style="@style/input_texts"
                     android:layout_marginTop="15dp"
-                    android:layout_marginEnd="30dp"
-                    android:hint="repita a senha">
+                    android:hint="@string/repita_a_senha">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_input_senha_repetir"
@@ -95,23 +83,16 @@
                         tools:targetApi="o" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
 
-                    <com.google.android.material.button.MaterialButton
+                <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_registrar"
                         style="@style/botao_confirmar"
-                        android:layout_width="match_parent"
-                        android:layout_marginStart="50dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginEnd="50dp"
                         android:onClick="btnRegister"
-                        android:text="Registrar" />
-                </LinearLayout>
+                    android:text="@string/Registrar" />
 
             </LinearLayout>
+
         </ScrollView>
 
         <include
@@ -119,8 +100,8 @@
             layout="@layout/footer" />
 
         <ProgressBar
-            style="@style/my_progress_bar"
             android:id="@+id/progress_bar"
+            style="@style/my_progress_bar"
             android:layout_centerInParent="true"
             android:visibility="gone"/>
 

@@ -16,7 +16,8 @@ import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
 import static br.com.polenflorestal.siftrade.Constants.empresas_logos;
 
 public class MainActivity extends AppCompatActivity {
-    private int empresa_index;
+    private int empresaIndex;
+    private boolean activeLogos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.btn_user_logout)).setText(Html.fromHtml("<u>Sair</u>"));
 
-        empresa_index = new Random().nextInt(empresas_logos.length);
-        if (empresa_index >= empresas_logos.length)
-            empresa_index = 0;
+        // exibe o Primeiro logo
+        empresaIndex = new Random().nextInt(empresas_logos.length);
+        if (empresaIndex >= empresas_logos.length)
+            empresaIndex = 0;
         if( empresas_logos.length > 0 )
-            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
-        empresa_index += 1;
-        logosRotativas();
-    }
-
-    private void logosRotativas() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                if (empresa_index >= empresas_logos.length)
-                    empresa_index = 0;
-
-                if( empresas_logos.length > 0 )
-                    ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresa_index]);
-
-                empresa_index += 1;
-
-                logosRotativas();
-            }
-        }, LOGOS_ROTATE_TIME);
+            ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresaIndex]);
+        empresaIndex += 1;
     }
 
     public void btnTabelasSIF(View view) {
@@ -63,6 +46,38 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         verificaLogin();
+
+        // Seta a variavel de controle, para ativar o slide dos logos
+        activeLogos = true;
+        logosRotativas();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // desativa o slide dos logos
+        activeLogos = false;
+    }
+
+    private void logosRotativas() {
+        if (activeLogos) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (empresaIndex >= empresas_logos.length)
+                        empresaIndex = 0;
+
+                    if (empresas_logos.length > 0)
+                        ((ImageView) findViewById(R.id.empresas_logos)).setImageResource(empresas_logos[empresaIndex]);
+
+                    empresaIndex += 1;
+
+                    logosRotativas();
+                }
+            }, LOGOS_ROTATE_TIME);
+        }
     }
 
     private void verificaLogin(){
