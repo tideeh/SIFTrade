@@ -1,6 +1,7 @@
 package br.com.polenflorestal.siftrade;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -28,6 +29,15 @@ public final class DataBaseUtil {
         if(INSTANCE == null)
             INSTANCE = new DataBaseUtil();
         return INSTANCE;
+    }
+
+    public Task insertDocument(String collection, Object object){
+        DocumentReference documentReference = db.collection(collection).document();
+        return db.collection(collection).document(documentReference.getId()).set(object);
+    }
+
+    public Query getCollectionReference(String collection, String orderBy, Query.Direction direction){
+        return db.collection(collection).orderBy(orderBy, direction);
     }
 
     public Task insertDocument(String collection, String documentID, Object object){
