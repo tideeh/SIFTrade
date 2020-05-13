@@ -96,4 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
         verificaLogin();
     }
+
+    public void btnFaleConosco(View view) {
+        Intent intent = new Intent(this, FaleConoscoActivity.class);
+        startActivity(intent);
+    }
 }

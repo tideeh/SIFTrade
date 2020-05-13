@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ExibeTabelaSIF"></activity>
+        <activity android:name=".FaleConoscoActivity"></activity>
+        <activity android:name=".ExibeTabelaSIF" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".TabelasSIFActivity" />
         <activity android:name=".LoginActivity" />

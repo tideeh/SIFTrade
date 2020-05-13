@@ -17,7 +17,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/logo_header"
         android:maxWidth="250dp"
-        android:maxHeight="100dp"
+        android:maxHeight="70dp"
         android:src="@drawable/logo1" />
 
     <TextView
@@ -33,30 +33,30 @@
         android:textColor="@color/colorSecondary"
         android:textStyle="bold|italic" />
 
-        <View
-            android:id="@+id/separador_vertical_header"
-            android:layout_width="2dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/logo_header"
-            android:layout_alignBottom="@id/text_parceria"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@id/text_sif"
-            android:background="@color/colorPrimaryDark" />
+    <View
+        android:id="@+id/separador_vertical_header"
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/logo_header"
+        android:layout_alignBottom="@id/text_parceria"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@id/text_sif"
+        android:background="@color/colorPrimaryDark" />
 
-        <ImageView
-            android:id="@+id/empresas_logos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/separador_vertical_header"
-            android:layout_alignBottom="@id/separador_vertical_header"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/separador_vertical_header"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/empresas_logos"
-            android:maxHeight="130dp" />
+    <ImageView
+        android:id="@+id/empresas_logos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/logo_header"
+        android:layout_alignBottom="@id/text_parceria"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/separador_vertical_header"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/empresas_logos"
+        android:maxHeight="100dp" />
 
     <TextView
         android:id="@+id/text_parceria"

@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -56,11 +57,14 @@ public class ExibeTabelaSIF extends AppCompatActivity {
     private String regiao;
     private String produto;
     private int rowIndex;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exibe_tabela_s_i_f);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         TextView txtUF = findViewById(R.id.exibe_tabela_uf);
         TextView txtRegiao = findViewById(R.id.exibe_tabela_regiao);
@@ -84,12 +88,15 @@ public class ExibeTabelaSIF extends AppCompatActivity {
             sUnidade += prodUnidades.get(produto);
         txtUnidade.setText(sUnidade);
 
+        progressBar.setVisibility(View.VISIBLE);
         DataBaseUtil.getInstance().getCollectionReference("/UF/" + uf + "/Regioes/" + regiao + "/Produtos/" + produto + "/Preços", "data", Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                        progressBar.setVisibility(View.VISIBLE);
                         if (e != null) {
                             Log.w("MY_DATABASE", "Listen failed.", e);
+                            progressBar.setVisibility(View.GONE);
                             return;
                         }
                         if( queryDocumentSnapshots != null ){
@@ -100,6 +107,7 @@ public class ExibeTabelaSIF extends AppCompatActivity {
                                 }
                             }
                         }
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
                 /*
@@ -253,7 +261,7 @@ public class ExibeTabelaSIF extends AppCompatActivity {
 
         Date date = null;
         try {
-            date = new SimpleDateFormat("MM/yyyy").parse(sData);
+            date = new SimpleDateFormat("MMyyyy").parse(sData);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -279,8 +287,8 @@ public class ExibeTabelaSIF extends AppCompatActivity {
         if (TextUtils.isEmpty(sData)) {
             inputData.setError("Campo necessário.");
             valido = false;
-        } else if (sData.length() != 7) {
-            inputData.setError("Utilize o formato: MM/AAAA (ex: 01/2009)");
+        } else if (sData.length() != 6) {
+            inputData.setError("Utilize o formato: MMAAAA (ex: 012009)");
             valido = false;
         } else {
             inputData.setError(null);

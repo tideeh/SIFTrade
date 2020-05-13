@@ -4,7 +4,7 @@ apply plugin: 'com.google.gms.google-services'
 // aqui configura o version code e o version name
 ext.versionMajor = 1 // altera quando tem um grande releas
 ext.versionMinor = 1 // altera quando tem um release medio (volta pra 0 quando altera o Major)
-ext.versionPatch = 3 // altera em qualquer release (volta pra 0 quando altera o Minor)
+ext.versionPatch = 5 // altera em qualquer release (volta pra 0 quando altera o Minor)
 ext.versionClassifier = "ALFA" // nome da versao (null) para desativar
 ext.minimumSdkVersion = 21 // altera quando precisar aumentar o min SDK version (novas apis)
 

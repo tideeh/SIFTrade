@@ -24,6 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -31,8 +32,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:orientation="vertical"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp">
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -94,9 +95,15 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                 </TableLayout>
+
+                <ProgressBar
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/progress_bar"
+                    style="@style/my_progress_bar"
+                    android:visibility="visible" />
 
 
             </LinearLayout>
@@ -114,7 +121,7 @@
                 style="@style/input_texts"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:hint="data (MM/AAAA)">
+                android:hint="data (MMAAAA)">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/exibe_tabela_input_data"
@@ -141,7 +148,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/exibe_tabela_btn_cadastrar"
                 style="@style/botao_confirmar"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="0dp"
                 android:onClick="btnCadastrarPreco"
                 android:text="@string/Cadastrar" />
 

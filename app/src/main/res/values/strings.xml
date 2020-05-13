@@ -55,6 +55,27 @@
         <item>Mudas</item>
     </string-array>
 
+    <string name="fale_conosco_assunto_prompt">Selecione um Assunto</string>
+    <string-array name="fale_conosco_assunto_list">
+        <item>Selecione um Assunto</item>
+        <item>Dúvidas</item>
+        <item>Sugestões</item>
+        <item>Reclamações</item>
+        <item>Elogios</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string name="fale_conosco_setor_prompt">Selecione um Setor</string>
+    <string-array name="fale_conosco_setor_list">
+        <item>Selecione um Setor</item>
+        <item>Eventos e cursos</item>
+        <item>Projetos e Gt\'s</item>
+        <item>Comunicação</item>
+        <item>Faturamento</item>
+        <item>Gerência</item>
+        <item>Outros / não sei</item>
+    </string-array>
+
     <string name="Floresta_4_0">Floresta 4.0</string>
     <string name="Polen_Startup_Florestal">Pólen Startup Florestal</string>
     <string name="Bem_vindo_ao">Bem vindo ao</string>
@@ -88,5 +109,7 @@
     <string name="sif_c_2020">SIF © 2020</string>
     <string name="Unidade_dois_pontos">"Unidade: "</string>
     <string name="Cadastrar">Cadastrar</string>
+    <string name="Sim">Sim</string>
+    <string name="Nao">Não</string>
 
 </resources>
