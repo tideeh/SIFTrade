@@ -1,6 +1,4 @@
-package br.com.polenflorestal.siftrade;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,15 +11,19 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
+import br.com.polenflorestal.siftrade.R;
 
-public class FaleConoscoActivity extends AppCompatActivity {
+import static br.com.polenflorestal.siftrade.utils.Constants.LOGOS_ROTATE_TIME;
+import static br.com.polenflorestal.siftrade.utils.Constants.empresasLogos;
+
+public class FaleConosco extends AppCompatActivity {
     private int empresaIndex;
     private boolean activeLogos;
     private RadioGroup radioGroupAssociado;

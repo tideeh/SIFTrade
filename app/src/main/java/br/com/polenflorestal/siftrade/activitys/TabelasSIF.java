@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
+import br.com.polenflorestal.siftrade.R;
+import br.com.polenflorestal.siftrade.utils.ToastUtil;
+import br.com.polenflorestal.siftrade.utils.UserUtil;
 
-public class TabelasSIFActivity extends AppCompatActivity {
+import static br.com.polenflorestal.siftrade.utils.Constants.LOGOS_ROTATE_TIME;
+import static br.com.polenflorestal.siftrade.utils.Constants.empresasLogos;
+
+public class TabelasSIF extends AppCompatActivity {
     private static final int RC_FAZER_LOGIN = 9003;
     Map<String, String[]> uf_regions;
     private int empresaIndex;
@@ -50,13 +54,13 @@ public class TabelasSIFActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
                 //ToastUtil.show(TabelasSIFActivity.this, pos+" "+adapterView.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG);
 
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(TabelasSIFActivity.this, android.R.layout.simple_spinner_item, new String[]{"Selecione uma Região"});
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(TabelasSIF.this, android.R.layout.simple_spinner_item, new String[]{"Selecione uma Região"});
 
                 if( pos > 0 ){
                     String uf_selected = adapterView.getItemAtPosition(pos).toString();
 
                     if( uf_regions.containsKey(uf_selected) ){
-                        dataAdapter = new ArrayAdapter<>(TabelasSIFActivity.this, android.R.layout.simple_spinner_item, uf_regions.get(uf_selected));
+                        dataAdapter = new ArrayAdapter<>(TabelasSIF.this, android.R.layout.simple_spinner_item, uf_regions.get(uf_selected));
                     }
                 }
 
@@ -84,7 +88,7 @@ public class TabelasSIFActivity extends AppCompatActivity {
         super.onStart();
 
         if (!UserUtil.isLogged()) {
-            startActivityForResult(new Intent(this, LoginActivity.class), RC_FAZER_LOGIN);
+            startActivityForResult(new Intent(this, Login.class), RC_FAZER_LOGIN);
             //finish();
         }
 

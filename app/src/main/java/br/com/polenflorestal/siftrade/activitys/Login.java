@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,15 +29,18 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.Random;
 
-import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
+import br.com.polenflorestal.siftrade.R;
+import br.com.polenflorestal.siftrade.utils.ToastUtil;
+import br.com.polenflorestal.siftrade.utils.UserUtil;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private int empresa_index;
-    private boolean activeLogos;
+import static br.com.polenflorestal.siftrade.utils.Constants.LOGOS_ROTATE_TIME;
+import static br.com.polenflorestal.siftrade.utils.Constants.empresasLogos;
+
+public class Login extends AppCompatActivity implements View.OnClickListener {
     private static final int RC_SIGN_IN_GOOGLE = 9001;
     private static final int RC_REGISTER_ACCOUNT = 9002;
-
+    private int empresa_index;
+    private boolean activeLogos;
     private ProgressBar progressBar;
 
     private EditText inputEmail;
@@ -69,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccess(LoginResult loginResult) {
                 // sucesso, agora autentica com o firebase
                 //Toast.makeText(getApplicationContext(), "Facebook onSuccess", Toast.LENGTH_SHORT).show();
-                UserUtil.loginWithFacebook(LoginActivity.this, loginResult.getAccessToken(), progressBar);
+                UserUtil.loginWithFacebook(Login.this, loginResult.getAccessToken(), progressBar);
             }
 
             @Override
@@ -147,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.btn_registrar:
-                startActivityForResult(new Intent(getApplicationContext(), RegisterActivity.class), RC_REGISTER_ACCOUNT);
+                startActivityForResult(new Intent(getApplicationContext(), Register.class), RC_REGISTER_ACCOUNT);
                 break;
 
             default:

@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
-import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
+import br.com.polenflorestal.siftrade.R;
+import br.com.polenflorestal.siftrade.utils.UserUtil;
 
-public class MainActivity extends AppCompatActivity {
+import static br.com.polenflorestal.siftrade.utils.Constants.LOGOS_ROTATE_TIME;
+import static br.com.polenflorestal.siftrade.utils.Constants.empresasLogos;
+
+public class Main extends AppCompatActivity {
     private int empresaIndex;
     private boolean activeLogos;
 
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnTabelasSIF(View view) {
-        Intent intent = new Intent(this, TabelasSIFActivity.class);
+        Intent intent = new Intent(this, TabelasSIF.class);
         startActivity(intent);
         //finish(); // nao precisa fechar essa activity. deixar voltar pra ela caso queiram
     }
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnFaleConosco(View view) {
-        Intent intent = new Intent(this, FaleConoscoActivity.class);
+        Intent intent = new Intent(this, FaleConosco.class);
         startActivity(intent);
     }
 }

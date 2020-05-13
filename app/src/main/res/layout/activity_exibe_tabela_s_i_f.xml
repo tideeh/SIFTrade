@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ExibeTabelaSIF">
+    tools:context=".activitys.ExibeTabelaSIF">
 
     <include
         android:id="@+id/header"

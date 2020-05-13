@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.utils;
 
 /*
 Utilitario para exibir Toast sobrepondo o anterior (caso haja)

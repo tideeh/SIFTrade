@@ -1,10 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SIF Trade</string>
     <string name="imagem_logo">logo imagem</string>
 
     <string name="facebook_app_id">171454440860215</string>
     <string name="fb_login_protocol_scheme">fb171454440860215</string>
     <string name="fazer_login_com_google">Fazer login com Google</string>
+    <string name="com.crashlytics.useFirebaseAppId" tools:ignore="ExtraTranslation">true</string>
 
     <string name="uf_prompt">Selecione um Estado</string>
     <string-array name="uf_list">

@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +29,7 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -40,12 +41,26 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
-import static br.com.polenflorestal.siftrade.Constants.prodUnidades;
+import br.com.polenflorestal.siftrade.R;
+import br.com.polenflorestal.siftrade.utils.DataBaseUtil;
+import br.com.polenflorestal.siftrade.utils.ToastUtil;
+import br.com.polenflorestal.siftrade.utils.UserUtil;
+
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_COLLECTION_PRECOS;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_COLLECTION_PRODUTOS;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_COLLECTION_REGIOES;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_COLLECTION_UF;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_COLLECTION_USUARIOS;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_DOCUMENT_PRECO_FIELD_DATA;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_DOCUMENT_PRECO_FIELD_PRECO;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_DOCUMENT_USUARIO_FIELD_ADMIN;
+import static br.com.polenflorestal.siftrade.utils.Constants.LOGOS_ROTATE_TIME;
+import static br.com.polenflorestal.siftrade.utils.Constants.empresasLogos;
+import static br.com.polenflorestal.siftrade.utils.Constants.prodUnidades;
 
 public class ExibeTabelaSIF extends AppCompatActivity {
     private static final int RC_FAZER_LOGIN = 9003;
+    ListenerRegistration precosListener;
     private int empresaIndex;
     private boolean activeLogos;
     private TableLayout tableLayout;
@@ -89,7 +104,7 @@ public class ExibeTabelaSIF extends AppCompatActivity {
         txtUnidade.setText(sUnidade);
 
         progressBar.setVisibility(View.VISIBLE);
-        DataBaseUtil.getInstance().getCollectionReference("/UF/" + uf + "/Regioes/" + regiao + "/Produtos/" + produto + "/Preços", "data", Query.Direction.DESCENDING)
+        precosListener = DataBaseUtil.getInstance().getCollectionReference("/" + DB_COLLECTION_UF + "/" + uf + "/" + DB_COLLECTION_REGIOES + "/" + regiao + "/" + DB_COLLECTION_PRODUTOS + "/" + produto + "/" + DB_COLLECTION_PRECOS, DB_DOCUMENT_PRECO_FIELD_DATA, Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
@@ -102,63 +117,14 @@ public class ExibeTabelaSIF extends AppCompatActivity {
                         if( queryDocumentSnapshots != null ){
                             limpaTabelaPrecos();
                             for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
-                                if ( doc.get("data") != null && doc.get("preço") != null ) {
-                                    addTableRow((Timestamp) doc.get("data"), (double) doc.get("preço"));
+                                if (doc.get(DB_DOCUMENT_PRECO_FIELD_DATA) != null && doc.get(DB_DOCUMENT_PRECO_FIELD_PRECO) != null) {
+                                    addTableRow((Timestamp) doc.get(DB_DOCUMENT_PRECO_FIELD_DATA), (double) doc.get(DB_DOCUMENT_PRECO_FIELD_PRECO));
                                 }
                             }
                         }
                         progressBar.setVisibility(View.GONE);
                     }
                 });
-                /*
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            QuerySnapshot documents = task.getResult();
-                            if (documents != null) {
-                                int i = 0;
-                                for (QueryDocumentSnapshot document : documents) {
-                                    //Log.d("MY_DATABASE", document.getId() + " => " + document.getData());
-                                    Timestamp data = (Timestamp) document.get("data");
-                                    double preco = (double) document.get("preço");
-
-                                    TableLayout.LayoutParams tableParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
-
-                                    TableRow tableRow = new TableRow(ExibeTabelaSIF.this);
-                                    tableRow.setLayoutParams(tableParams);// TableLayout is the parent view
-                                    if (i % 2 == 0)
-                                        tableRow.setBackgroundColor(Color.parseColor("#cfcfcf"));
-                                    else
-                                        tableRow.setBackgroundColor(Color.parseColor("#ededed"));
-
-                                    TableRow.LayoutParams rowParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1);
-
-                                    TextView txtData = new TextView(ExibeTabelaSIF.this);
-                                    txtData.setLayoutParams(rowParams);// TableRow is the parent view
-                                    String sData = new SimpleDateFormat("MM/yyyy").format(data != null ? data.toDate() : "-");
-                                    txtData.setText(sData);
-                                    txtData.setGravity(Gravity.CENTER_HORIZONTAL);
-
-                                    TextView txtPreco = new TextView(ExibeTabelaSIF.this);
-                                    txtPreco.setLayoutParams(rowParams);// TableRow is the parent view
-                                    txtPreco.setText(preco + "");
-                                    txtPreco.setGravity(Gravity.CENTER_HORIZONTAL);
-
-                                    tableLayout.addView(tableRow);
-                                    tableRow.addView(txtData);
-                                    tableRow.addView(txtPreco);
-
-                                    i += 1;
-                                }
-                            }
-                        } else {
-                            Log.w("MY_DATABASE", "Error getting documents.", task.getException());
-                        }
-                    }
-                });
-
-                 */
 
         // primeira logo
         empresaIndex = new Random().nextInt(empresasLogos.length);
@@ -174,13 +140,13 @@ public class ExibeTabelaSIF extends AppCompatActivity {
         super.onStart();
 
         if (!UserUtil.isLogged()) {
-            startActivityForResult(new Intent(this, LoginActivity.class), RC_FAZER_LOGIN);
+            startActivityForResult(new Intent(this, Login.class), RC_FAZER_LOGIN);
             //finish();
         }
 
         // exibe ou esconde a caixa de cadastrar preco
         adminView.setVisibility(View.GONE);
-        DataBaseUtil.getInstance().getDocument("Usuarios", UserUtil.getCurrentUser().getEmail())
+        DataBaseUtil.getInstance().getDocument(DB_COLLECTION_USUARIOS, UserUtil.getCurrentUser().getEmail())
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -189,8 +155,8 @@ public class ExibeTabelaSIF extends AppCompatActivity {
                             if (document != null) {
                                 if (document.exists()) {
                                     //Log.d("MY_DATABASE", "DocumentSnapshot data: " + document.getData());
-                                    if (document.contains("admin")) {
-                                        isAdmin = (boolean) document.get("admin");
+                                    if (document.contains(DB_DOCUMENT_USUARIO_FIELD_ADMIN)) {
+                                        isAdmin = (boolean) document.get(DB_DOCUMENT_USUARIO_FIELD_ADMIN);
                                         if (isAdmin) {
                                             adminView.setVisibility(View.VISIBLE);
                                         }
@@ -257,7 +223,7 @@ public class ExibeTabelaSIF extends AppCompatActivity {
         double preco = Double.parseDouble(inputPreco.getText().toString());
 
         Map<String, Object> precoData = new HashMap<>();
-        precoData.put("preço", preco);
+        precoData.put(DB_DOCUMENT_PRECO_FIELD_PRECO, preco);
 
         Date date = null;
         try {
@@ -267,9 +233,9 @@ public class ExibeTabelaSIF extends AppCompatActivity {
         }
 
         if( date != null )
-            precoData.put("data", new Timestamp(date));
+            precoData.put(DB_DOCUMENT_PRECO_FIELD_DATA, new Timestamp(date));
 
-        DataBaseUtil.getInstance().insertDocument("/UF/" + uf + "/Regioes/" + regiao + "/Produtos/" + produto + "/Preços", precoData);
+        DataBaseUtil.getInstance().insertDocument("/" + DB_COLLECTION_UF + "/" + uf + "/" + DB_COLLECTION_REGIOES + "/" + regiao + "/" + DB_COLLECTION_PRODUTOS + "/" + produto + "/" + DB_COLLECTION_PRECOS, precoData);
 
         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputManager != null) {
@@ -346,5 +312,12 @@ public class ExibeTabelaSIF extends AppCompatActivity {
         tableRow.addView(txtPreco);
 
         rowIndex += 1;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        precosListener.remove();
     }
 }

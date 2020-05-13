@@ -1,10 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
+// Apply the Performance Monitoring plugin
+apply plugin: 'com.google.firebase.firebase-perf'
 
 // aqui configura o version code e o version name
 ext.versionMajor = 1 // altera quando tem um grande releas
 ext.versionMinor = 1 // altera quando tem um release medio (volta pra 0 quando altera o Major)
-ext.versionPatch = 5 // altera em qualquer release (volta pra 0 quando altera o Minor)
+ext.versionPatch = 7 // altera em qualquer release (volta pra 0 quando altera o Minor)
 ext.versionClassifier = "ALFA" // nome da versao (null) para desativar
 ext.minimumSdkVersion = 21 // altera quando precisar aumentar o min SDK version (novas apis)
 
@@ -62,4 +65,9 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:5.11.0'
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
+    implementation ('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true;
+    }
+    // Add the dependency for the Performance Monitoring library
+    implementation 'com.google.firebase:firebase-perf:19.0.7'
 }

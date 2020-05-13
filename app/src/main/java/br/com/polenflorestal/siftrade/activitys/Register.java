@@ -1,6 +1,4 @@
-package br.com.polenflorestal.siftrade;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,12 +8,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Random;
 
-import static br.com.polenflorestal.siftrade.Constants.LOGOS_ROTATE_TIME;
-import static br.com.polenflorestal.siftrade.Constants.empresasLogos;
+import br.com.polenflorestal.siftrade.R;
+import br.com.polenflorestal.siftrade.utils.UserUtil;
 
-public class RegisterActivity extends AppCompatActivity {
+import static br.com.polenflorestal.siftrade.utils.Constants.LOGOS_ROTATE_TIME;
+import static br.com.polenflorestal.siftrade.utils.Constants.empresasLogos;
+
+public class Register extends AppCompatActivity {
     private EditText input_nome;
     private EditText input_email;
     private EditText input_senha;

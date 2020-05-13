@@ -1,7 +1,6 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.utils;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -22,6 +21,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_COLLECTION_USUARIOS;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_DOCUMENT_USUARIO_FIELD_ADMIN;
+import static br.com.polenflorestal.siftrade.utils.Constants.DB_DOCUMENT_USUARIO_FIELD_EMPRESA;
 
 public class UserUtil {
     private static FirebaseAuth mAuth;
@@ -56,8 +63,19 @@ public class UserUtil {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // login realizado com sucesso, vai para tela inicial ou selecionar fazenda
-                            //ctx.startActivity(new Intent(ctx, SelecionarFazenda.class));
+
+                            // se for o primeiro login 'registra' no banco esse usuario
+                            if( Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getAdditionalUserInfo()).isNewUser() ){
+                                // insere no banco tambem, pra ter controle de admin, empresa...
+                                Map<String, Object> userData = new HashMap<String, Object>() {
+                                    {
+                                        put(DB_DOCUMENT_USUARIO_FIELD_ADMIN, false);
+                                        put(DB_DOCUMENT_USUARIO_FIELD_EMPRESA, "");
+                                    }
+                                };
+                                DataBaseUtil.getInstance().insertDocument(DB_COLLECTION_USUARIOS, getCurrentUser().getEmail(), userData);
+                            }
+
                             ctx.setResult(Activity.RESULT_OK);
                             ctx.finish();
                         } else {
@@ -81,8 +99,19 @@ public class UserUtil {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // login realizado com sucesso, vai para tela inicial ou selecionar fazenda
-                            //ctx.startActivity(new Intent(ctx, SelecionarFazenda.class));
+
+                            // se for o primeiro login 'registra' no banco esse usuario
+                            if( Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getAdditionalUserInfo()).isNewUser() ){
+                                // insere no banco tambem, pra ter controle de admin, empresa...
+                                Map<String, Object> userData = new HashMap<String, Object>() {
+                                    {
+                                        put(DB_DOCUMENT_USUARIO_FIELD_ADMIN, false);
+                                        put(DB_DOCUMENT_USUARIO_FIELD_EMPRESA, "");
+                                    }
+                                };
+                                DataBaseUtil.getInstance().insertDocument(DB_COLLECTION_USUARIOS, getCurrentUser().getEmail(), userData);
+                            }
+
                             ctx.setResult(Activity.RESULT_OK);
                             ctx.finish();
                         } else {
@@ -142,6 +171,15 @@ public class UserUtil {
                                     .setDisplayName(nome)
                                     .build();
                             getCurrentUser().updateProfile(profileUpdates);
+
+                            // insere no banco tambem, pra ter controle de admin, empresa...
+                            Map<String, Object> userData = new HashMap<String, Object>() {
+                                {
+                                    put(DB_DOCUMENT_USUARIO_FIELD_ADMIN, false);
+                                    put(DB_DOCUMENT_USUARIO_FIELD_EMPRESA, "");
+                                }
+                            };
+                            DataBaseUtil.getInstance().insertDocument(DB_COLLECTION_USUARIOS, getCurrentUser().getEmail(), userData);
 
                             ctx.setResult(Activity.RESULT_OK);
                             ctx.finish();

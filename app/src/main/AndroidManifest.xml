@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FaleConoscoActivity"></activity>
-        <activity android:name=".ExibeTabelaSIF" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".TabelasSIFActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activitys.FaleConosco"></activity>
+        <activity android:name=".activitys.ExibeTabelaSIF" />
+        <activity android:name=".activitys.Register" />
+        <activity android:name=".activitys.TabelasSIF" />
+        <activity android:name=".activitys.Login" />
+        <activity android:name=".activitys.Main" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activitys.SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/MyFullScreen"
             tools:ignore="LockedOrientationActivity">

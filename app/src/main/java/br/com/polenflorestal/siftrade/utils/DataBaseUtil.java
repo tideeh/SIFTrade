@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.utils;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -9,8 +9,8 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public final class DataBaseUtil {
-    private FirebaseFirestore db = null;
     private static DataBaseUtil INSTANCE = null;
+    private FirebaseFirestore db = null;
 
     private DataBaseUtil(){
         if(db == null) {

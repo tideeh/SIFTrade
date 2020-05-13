@@ -1,4 +1,4 @@
-package br.com.polenflorestal.siftrade;
+package br.com.polenflorestal.siftrade.activitys;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +9,17 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static br.com.polenflorestal.siftrade.Constants.DEFAULT_INT_VALUE;
-import static br.com.polenflorestal.siftrade.Constants.SP_KEY_VERSION_CODE;
-import static br.com.polenflorestal.siftrade.Constants.SP_NOME;
+import com.crashlytics.android.Crashlytics;
 
-public class SplashScreenActivity extends AppCompatActivity {
+import br.com.polenflorestal.siftrade.BuildConfig;
+import br.com.polenflorestal.siftrade.R;
+import io.fabric.sdk.android.Fabric;
+
+import static br.com.polenflorestal.siftrade.utils.Constants.DEFAULT_INT_VALUE;
+import static br.com.polenflorestal.siftrade.utils.Constants.SP_KEY_VERSION_CODE;
+import static br.com.polenflorestal.siftrade.utils.Constants.SP_NOME;
+
+public class SplashScreen extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private int versionCode;
@@ -22,6 +28,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        Fabric.with(this, new Crashlytics());
 
         sharedPreferences = getSharedPreferences(SP_NOME, Context.MODE_PRIVATE);
 
@@ -44,7 +52,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void fechaSplash(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Main.class);
         startActivity(intent);
         finish();
     }
